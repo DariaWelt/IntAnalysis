@@ -11,10 +11,12 @@ for i=1:size(xx, 1)
     end
 end
 figure
+[~,~,~,~,~] = EqnTolR2(inf(A), sup(A), inf(b), sup(b));
+hold on
 contour(xx, yy, zz, levels)
 hold on
 %%%   Tolmaximizing   %%%
-[tolMax,argMax,envs,ccode] = tolsolvty(inf(A), sup(A), inf(b), sup(b));
+[tolMax,argMax,~,~] = tolsolvty(inf(A), sup(A), inf(b), sup(b));
 tolMax
 plot(argMax(1), argMax(2), 'k+');
 hold on 

@@ -49,7 +49,7 @@ figure
 A2 = A;
 for i = 1:iterations
     A2 = A2 ./ 2;
-    [~,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
+    [tolMax,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
     plot(argMax(1), argMax(2), 'k+');
     hold on
 end
@@ -62,22 +62,21 @@ line2 = [0, 0; 1, 1; 0, 0]
 line3 = [0, 0; 0, 0; 1, 1]
 for i = 1:iterations
     C = rad(A2)./2 .*line1;
-    A2 = infsup(inf(A2)+C, sup(A2)-C);
-    [~,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
+    A2 = infsup(mid(A2)-C, mid(A2)+C);
+    [tolMax,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
     plot(argMax(1), argMax(2), 'k+');
     hold on
 
     C = rad(A2)./2 .*line2;
-    A2 = infsup(inf(A2)+C, sup(A2)-C);
-    [~,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
+    A2 = infsup(mid(A2)-C, mid(A2)+C);
+    [tolMax,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
     plot(argMax(1), argMax(2), 'k+');
     hold on
 
     C = rad(A2)./2 .*line3;
-    A2 = infsup(inf(A2)+C, sup(A2)-C);
-    [~,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
+    A2 = infsup(mid(A2)-C, mid(A2)+C);
+    [tolMax,argMax,~,~] = tolsolvty(inf(A2), sup(A2), inf(b), sup(b));
     plot(argMax(1), argMax(2), 'k+');
     hold on
-    A2
 end
 grid on
