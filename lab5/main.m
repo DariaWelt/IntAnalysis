@@ -16,11 +16,12 @@ b_maxdiag = (b1 + b2) / 2;
 b_gravity = mean(ir_beta2poly(irp_steam));
 b_lsm = (X \ y)';
 figure
-plot(b_maxdiag(1), b_maxdiag(2), ';максимальная диагональ;ro');
+ir_plotbeta(irp_steam);
 hold on
+plot(b_maxdiag(1), b_maxdiag(2), ';максимальная диагональ;ro');
 plot(b_gravity(1), b_gravity(2), ';центр тяжести;go');
 plot(b_lsm(1), b_lsm(2), ';мнк;bo');
-ir_plotbeta(irp_steam);
+
 grid on
 legend();
 xlabel('b1');
