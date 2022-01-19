@@ -24,7 +24,7 @@ class Interval:
         ax.plot([self.start, self.start], [level - bounds, level + bounds], c=color)
         ax.plot([self.end, self.end], [level - bounds, level + bounds], c=color)
         if text:
-            ax.text(self.start, level - 6*bounds, text)
+            ax.text(self.start - 0.4, level + 0.1, text)
         return ax
 
     def __str__(self):
